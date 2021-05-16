@@ -16,7 +16,7 @@
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.35);
     background-image: linear-gradient(97deg, #ff7a6e, #Ffd670);
     width: 35vw;
-    height: 55vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -69,5 +69,15 @@
   .auth-button-container {
     display: flex;
     justify-content: space-around;
-    width: 55%;
+    width: 75%;
+  }
+  @media all and (max-width: 900px){
+    .auth-container{
+      border: none;
+      background-image: none;
+      box-shadow: 0px 0px 0px 0px transparent;
+    }
+    .auth-button-container{
+      width: 70vw;
+    }
   }

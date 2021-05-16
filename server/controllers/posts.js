@@ -39,6 +39,15 @@ module.exports = {
     },
     createPost: (req, res) => {
       //code here
+      const {id} = req.session.user
+      const {title, img, content} = req.body
+      const date = new Date();
+      if(req.session.user===true){
+      req.app.get('db').post.create_post(id,title,img,content,date)
+      .then(posts => res.status(200).send(posts))
+      }else{
+        res.status(403).send({errorMessage: "This user doesn't exist in our database please log in and try again."});
+      }
     },
     readPost: (req, res) => {
       req.app.get('db').post.read_post(req.params.id)
