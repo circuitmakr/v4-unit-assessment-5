@@ -1,8 +1,12 @@
+DROP TABLE IF EXISTS helo_users;
+DROP TABLE IF EXISTS helo_posts;
+
+
 CREATE TABLE helo_users
 (
     helo_users_id SERIAL PRIMARY KEY,
-    username VARCHAR(40) NOT NULL,
-    password VARCHAR(50) NOT NULL,
+    username VARCHAR(1000) NOT NULL,
+    password VARCHAR(1000) NOT NULL,
     profile_pic TEXT
 );
 CREATE TABLE helo_posts

@@ -3,7 +3,9 @@ const express = require('express'),
       userCtrl = require('./controllers/user'),
       postCtrl = require('./controllers/posts')
 const massive = require('massive')
-const {CONNECTION_STRING, SERVER_PORT} = process.env
+const bcrypt = require('bcryptjs')
+
+const {CONNECTION_STRING, SERVER_PORT, SESSION_SECRET} = process.env
 const session = require('express-session')
 const app = express();
 massive({
@@ -19,7 +21,7 @@ app.use(
     session({
         resave: false,
         saveUninitialized: true,
-        secret: process.env.SESSION_SECRET,
+        secret: SESSION_SECRET,
         cookie: {maxAge: 1000*60*60*24},
     })
 )
